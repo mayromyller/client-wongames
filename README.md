@@ -1,11 +1,29 @@
+<h1 align="center">
+	<a href="#">
+    Won Games
+  </a>
 
-![React Avançado](https://raw.githubusercontent.com/React-Avancado/boilerplate/master/public/img/logo-gh.svg)
+  <br />
 
-This is a [Next.js](https://nextjs.org/) boilerplate to be used in a course called [React Avançado](https://reactavancado.com.br/).
-![ci](https://github.com/React-Avancado/boilerplate/workflows/ci/badge.svg)
-## What is inside?
+  <img src="https://img.shields.io/badge/made%20by-Mayro%20Myller-F231A5?style=flat-square">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/mayromyller/client-wongames?color=F231A5&style=flat-square">
+  <img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/mayromyller/client-wongames?color=F231A5&style=flat-square">
+</h1>
 
-This project uses lot of stuff as:
+<!-- <p align="center">Breve descrição do app</p> -->
+
+<h5 align="center">
+	🚧 Em andamento 🚧
+</h5>
+
+
+<!-- ## Features
+
+Descreva algumas Características do app -->
+
+## Tecnologias utilizadas
+
+Esse app utiliza várias coisas, como:
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [NextJS](https://nextjs.org/)
@@ -17,42 +35,49 @@ This project uses lot of stuff as:
 - [Prettier](https://prettier.io/)
 - [Husky](https://github.com/typicode/husky)
 
-## Getting Started
+<!-- ## Sobre o app
 
-First, run the development server:
+Descrição do APP -->
+
+## Como recriar a aplicação?
+
+### Pré-requisitos
+
+Para rodar o app garanta que você tenha as seguintes ferramentas: [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
+
+### Rodando ao app
+
+Clone este repositório
+
+```
+git clone git@github.com:mayromyller/client-wongames.git
+```
+
+Instale as dependências
+
+```bash
+yarn install
+# ou
+npm install
+```
+
+Rode em modo desenvolvedor
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A aplicação irá rodar em: [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Comandos
 
-## Commands
-
-- `dev`: runs your application on `localhost:3000`
-- `build`: creates the production build version
-- `start`: starts a simple server with the build production code
-- `lint`: runs the linter in all components and pages
-- `test`: runs jest to test all components and pages
-- `test:watch`: runs jest in watch mode
-- `storybook`: runs storybook on `localhost:6006`
-- `build-storybook`: create the build version of storybook
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- `dev`: executa seu aplicativo em `localhost:3000`
+- `build`: cria a versão de compilação de produção
+- `start`: inicia um servidor simples com o código de produção da compilação
+- `lint`: executa o linter em todos os componentes e páginas
+- `test`: executa jest para testar todos os componentes e páginas
+- `test:watch`: executa jest no modo de observação
+- `storybook`: executa o livro de histórias em `localhost:6006`
+- `build-storybook`: cria a versão build do storybook
