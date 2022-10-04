@@ -5,11 +5,16 @@ import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
 import { Search as SearchIcon } from '@styled-icons/material/Search'
 import { Menu2 as MenuIcon } from '@styled-icons/remix-line/Menu2'
 
+import Button from 'components/Button'
 import Logo from '../Logo'
 
 import * as S from './styles'
 
-const Menu = () => {
+export type MenuProps = {
+  username?: string
+}
+
+const Menu = ({ username }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -33,9 +38,29 @@ const Menu = () => {
       </S.MenuGroup>
 
       <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
-        <S.IconWrapper onClick={() => setIsOpen(false)}>
-          <CloseIcon aria-label="close menu" />
-        </S.IconWrapper>
+        <CloseIcon aria-label="close menu" onClick={() => setIsOpen(false)} />
+
+        <S.MenuNav>
+          <S.MenuLink href="#">Início</S.MenuLink>
+          <S.MenuLink href="#">Explorar</S.MenuLink>
+
+          {!!username && (
+            <>
+              <S.MenuLink href="#">Minha conta</S.MenuLink>
+              <S.MenuLink href="#">Lista de desejos</S.MenuLink>
+            </>
+          )}
+        </S.MenuNav>
+
+        {!username && (
+          <S.RegisterBox>
+            <Button fullWidth size="large">
+              Entrar
+            </Button>
+            <span>ou</span>
+            <S.CreateAccount>Crie sua conta</S.CreateAccount>
+          </S.RegisterBox>
+        )}
       </S.MenuFull>
     </S.Wrapper>
   )
