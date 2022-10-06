@@ -6,6 +6,7 @@ import { Search as SearchIcon } from '@styled-icons/material/Search'
 import { Menu2 as MenuIcon } from '@styled-icons/remix-line/Menu2'
 
 import Button from 'components/Button'
+import MediaMatch from 'components/MediaMatch'
 import Logo from '../Logo'
 
 import * as S from './styles'
@@ -19,13 +20,22 @@ const Menu = ({ username }: MenuProps) => {
 
   return (
     <S.Wrapper>
-      <S.IconWrapper onClick={() => setIsOpen(true)}>
-        <MenuIcon aria-label="Open Menu" />
-      </S.IconWrapper>
+      <MediaMatch lessThan="medium">
+        <S.IconWrapper onClick={() => setIsOpen(true)}>
+          <MenuIcon aria-label="Open Menu" />
+        </S.IconWrapper>
+      </MediaMatch>
 
       <S.LogoWrapper>
         <Logo hideOnMobile />
       </S.LogoWrapper>
+
+      <MediaMatch greaterThan="medium">
+        <S.MenuNav>
+          <S.MenuLink href="#">Início</S.MenuLink>
+          <S.MenuLink href="#">Explorar</S.MenuLink>
+        </S.MenuNav>
+      </MediaMatch>
 
       <S.MenuGroup>
         <S.IconWrapper>
@@ -35,6 +45,12 @@ const Menu = ({ username }: MenuProps) => {
         <S.IconWrapper>
           <ShoppingCartIcon aria-label="Open Shopping Cart" />
         </S.IconWrapper>
+
+        {!username && (
+          <MediaMatch greaterThan="medium">
+            <Button>Sign in</Button>
+          </MediaMatch>
+        )}
       </S.MenuGroup>
 
       <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>

@@ -13,7 +13,7 @@ const mediaMatchModifiers = {
     ${media.lessThan(size)`display: block `}
   `,
   greaterThan: (size: breakpoint) => css`
-    ${media.greaterThan(size)`display: block`}
+    ${media.greaterThan(size)`display: block`};
   `
 }
 
