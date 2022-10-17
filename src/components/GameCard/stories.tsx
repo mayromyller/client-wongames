@@ -4,6 +4,10 @@ import GameCard, { GameCardProps } from '.'
 export default {
   title: 'GameCard',
   component: GameCard,
+  argTypes: {
+    onFav: { action: 'clicked' },
+    ribbon: { type: 'string' }
+  },
   args: {
     title: 'Red Dead',
     developer: 'Rockstar Games',
@@ -22,3 +26,19 @@ export const Default: Story<GameCardProps> = (args) => (
     <GameCard {...args} />
   </div>
 )
+
+export const WithRibbon: Story<GameCardProps> = (args) => (
+  <div
+    style={{
+      width: '30rem'
+    }}
+  >
+    <GameCard {...args} />
+  </div>
+)
+
+WithRibbon.args = {
+  ribbon: '20% off',
+  ribbonSize: 'small',
+  ribbonColor: 'primary'
+}

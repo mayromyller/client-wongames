@@ -1,9 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
-import { AddShoppingCart, FavoriteBorder } from 'styled-icons/material-outlined'
+import {
+  AddShoppingCart,
+  FavoriteBorder,
+  Favorite
+} from 'styled-icons/material-outlined'
 
 import Button from 'components/Button'
 
 import * as S from './styles'
+import Ribbon, { RibbonSizes, RibbonColors } from 'components/Ribbon'
 
 export type GameCardProps = {
   title: string
@@ -11,6 +16,11 @@ export type GameCardProps = {
   img: string
   price: string
   promotionalPrice?: string
+  favorite?: boolean
+  onFav?: () => void
+  ribbon?: string
+  ribbonSize?: RibbonSizes
+  ribbonColor?: RibbonColors
 }
 
 const GameCard = ({
@@ -18,9 +28,19 @@ const GameCard = ({
   developer,
   img,
   price,
-  promotionalPrice
+  promotionalPrice,
+  favorite = false,
+  onFav,
+  ribbon,
+  ribbonColor = 'primary',
+  ribbonSize = 'small'
 }: GameCardProps) => (
   <S.Wrapper>
+    {!!ribbon && (
+      <Ribbon color={ribbonColor} size={ribbonSize}>
+        {ribbon}
+      </Ribbon>
+    )}
     <S.ImageBox>
       <img src={img} alt={title} />
     </S.ImageBox>
@@ -30,8 +50,12 @@ const GameCard = ({
         <S.Developer>{developer}</S.Developer>
       </S.Info>
 
-      <S.FavButton role="button">
-        <FavoriteBorder aria-label="Add to Wishlist" />
+      <S.FavButton role="button" onClick={onFav}>
+        {favorite ? (
+          <Favorite aria-label="Remove from wishlist" />
+        ) : (
+          <FavoriteBorder aria-label="Add to Wishlist" />
+        )}
       </S.FavButton>
 
       <S.BuyBox>
