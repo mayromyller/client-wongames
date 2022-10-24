@@ -6,6 +6,19 @@ import theme from '../src/styles/theme'
 export const parameters = {
   nextRouter: {
     Provider: RouterContext.Provider
+  },
+  backgrounds: {
+    default: 'light',
+    values: [
+      {
+        name: 'light',
+        value: theme.colors.white
+      },
+      {
+        name: 'dark',
+        value: theme.colors.mainBg
+      }
+    ]
   }
 }
 
