@@ -1,10 +1,13 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+
+import { renderWithTheme } from '../../utils/tests/helper'
 
 import Checkbox from '.'
+import theme from 'styles/theme'
 
 describe('<Checkbox />', () => {
   it('should render with label', () => {
-    render(<Checkbox label="checkbox label" labelFor="check" />)
+    renderWithTheme(<Checkbox label="checkbox label" labelFor="check" />)
 
     expect(screen.getByRole('checkbox')).toBeInTheDocument()
 
@@ -14,8 +17,18 @@ describe('<Checkbox />', () => {
   })
 
   it('should render without label', () => {
-    render(<Checkbox />)
+    renderWithTheme(<Checkbox />)
 
     expect(screen.queryByLabelText('Checkbox')).not.toBeInTheDocument()
+  })
+
+  it('should render with black label', () => {
+    renderWithTheme(
+      <Checkbox label="checkbox label" labelFor="check" labelColor="black" />
+    )
+
+    expect(screen.getByText(/checkbox label/i)).toHaveStyle({
+      color: theme.colors.black
+    })
   })
 })
