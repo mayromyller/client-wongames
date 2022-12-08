@@ -40,6 +40,7 @@ export const Input = styled.input`
       transform: rotate(45deg);
       position: absolute;
       top: 0.1rem;
+      opacity: 0;
       transition: 0.1s ease-in-out;
     }
 
