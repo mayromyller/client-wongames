@@ -1,4 +1,7 @@
 import styled, { css } from 'styled-components'
+import { TextFieldProps } from '.'
+
+type IconPositionProps = Pick<TextFieldProps, 'iconPosition'>
 
 export const InputWrapper = styled.div`
   ${({ theme }) => css`
@@ -8,18 +11,20 @@ export const InputWrapper = styled.div`
     padding: 0 ${theme.spacings.xsmall};
     border: 0.2rem solid;
     border-color: ${theme.colors.lightGray};
+
     &:focus-within {
       box-shadow: 0 0 0.5rem ${theme.colors.primary};
     }
   `}
 `
 
-export const Input = styled.input`
-  ${({ theme }) => css`
+export const Input = styled.input<IconPositionProps>`
+  ${({ theme, iconPosition }) => css`
     color: ${theme.colors.black};
     font-family: ${theme.font.family};
     font-size: ${theme.font.sizes.medium};
     padding: ${theme.spacings.xxsmall} 0;
+    padding-${iconPosition}: ${theme.spacings.xsmall};
     background: transparent;
     border: 0;
     outline: none;
@@ -32,6 +37,19 @@ export const Label = styled.label`
     font-size: ${theme.font.sizes.small};
     color: ${theme.colors.black};
     cursor: pointer;
+  `}
+`
+
+export const Icon = styled.div<IconPositionProps>`
+  ${({ theme, iconPosition }) => css`
+    display: flex;
+    width: 2.2rem;
+    order: ${iconPosition === 'right' ? 1 : 0};
+    color: ${theme.colors.gray};
+
+    & > svg {
+      width: 100%;
+    }
   `}
 `
 

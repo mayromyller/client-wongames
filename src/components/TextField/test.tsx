@@ -1,5 +1,7 @@
 import { screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { Email } from '@styled-icons/material-outlined'
+
 import { renderWithTheme } from 'utils/tests/helper'
 
 import TextField from '.'
@@ -43,6 +45,12 @@ describe('<TextField />', () => {
       expect(onInput).toHaveBeenCalledTimes(text.length)
     })
     expect(onInput).toHaveBeenCalledWith(text)
+  })
+
+  it('Renders with Icon', () => {
+    renderWithTheme(<TextField icon={<Email data-testid="icon" />} />)
+
+    expect(screen.getByTestId('icon')).toBeInTheDocument()
   })
 
   // it('Is accessible by tab', () => {
