@@ -2,7 +2,7 @@ import styled, { css, DefaultTheme } from 'styled-components'
 import { TextFieldProps } from '.'
 
 type IconPositionProps = Pick<TextFieldProps, 'iconPosition'>
-type InputDisabledProps = Pick<TextFieldProps, 'disabled'>
+type InputDisabledProps = Pick<TextFieldProps, 'disabled'> & { error?: boolean }
 
 export const InputWrapper = styled.div`
   ${({ theme }) => css`
@@ -70,11 +70,28 @@ const wrapperModifier = {
         color: currentColor;
       }
     }
+  `,
+  error: (theme: DefaultTheme) => css`
+    ${InputWrapper} {
+      border-color: ${theme.colors.red};
+    }
+
+    ${Icon}, ${Label} {
+      color: ${theme.colors.red};
+    }
   `
 }
 
 export const Wrapper = styled.div<InputDisabledProps>`
-  ${({ theme, disabled }) => css`
+  ${({ theme, disabled, error }) => css`
     ${disabled && wrapperModifier.disabled(theme)};
+    ${error && wrapperModifier.error(theme)}
+  `}
+`
+
+export const Error = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.colors.red};
+    font-size: ${theme.font.sizes.xsmall};
   `}
 `
