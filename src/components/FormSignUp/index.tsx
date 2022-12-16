@@ -1,13 +1,13 @@
-import { AccountCircle, Email, Lock } from 'styled-icons/material-outlined'
-
-import Button from 'components/Button'
-import TextField from 'components/TextField'
-
-import * as S from './styles'
 import Link from 'next/link'
 
+import { AccountCircle, Email, Lock } from 'styled-icons/material-outlined'
+
+import { FormWrapper, FormLink } from 'components/Form'
+import TextField from 'components/TextField'
+import Button from 'components/Button'
+
 const FormSignUp = () => (
-  <S.Wrapper>
+  <FormWrapper>
     <form>
       <TextField
         name="name"
@@ -41,14 +41,14 @@ const FormSignUp = () => (
         Criar conta
       </Button>
 
-      <S.FormLink>
+      <FormLink>
         Já possuí uma conta?{' '}
         <Link href="/sign-in">
           <a> Entrar</a>
         </Link>
-      </S.FormLink>
+      </FormLink>
     </form>
-  </S.Wrapper>
+  </FormWrapper>
 )
 
 export default FormSignUp
